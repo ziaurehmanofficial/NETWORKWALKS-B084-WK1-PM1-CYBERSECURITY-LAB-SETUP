@@ -23,11 +23,11 @@
 
 ## 📌 Project Overview
 
-This project focuses on setting up a **virtual cybersecurity and penetration-testing lab** using VirtualBox and Kali Linux.
+This project documents the setup and configuration of an isolated virtual cybersecurity lab using Oracle VirtualBox and Kali Linux.
 
 The purpose of the lab is to create a controlled environment where cybersecurity tools, network scanning, reconnaissance, vulnerability assessment, and other security-testing activities can be performed safely and repeatedly.
 
-The lab is configured on a private virtual network so that additional machines can be added later and used as targets for authorized security testing.
+The environment is designed to be reusable and extensible, allowing additional virtual machines to be introduced as testing targets for authorized security experiments.
 
 ---
 
@@ -36,8 +36,8 @@ The lab is configured on a private virtual network so that additional machines c
 
 The main objectives of this project are to:
 
-- Install and configure VirtualBox.
-- Install/import Kali Linux as a virtual machine.
+- Install and configure Oracle VirtualBox.
+- Import and configure Kali Linux as a virtual machine.
 - Create a private **NAT Network** for the cybersecurity lab.
 - Configure network connectivity for Kali Linux.
 - Assign a consistent IP address to the Kali VM.
@@ -54,7 +54,7 @@ The lab provides an isolated and controlled environment for cybersecurity learni
 
 It can be used for activities such as:
 
-- Network reconnaissance
+- Network reconnaissance and host discovery
 - Port scanning
 - Vulnerability assessment
 - Packet analysis
@@ -66,12 +66,16 @@ It can be used for activities such as:
 
 ---
 
-## 🏗️ Lab Architecture
+## 🏗️ Lab Outcomes
 
-![](1-screenshot-title-image.png)
+- Successfully configured a Kali Linux virtual machine in Oracle VirtualBox.
+- Established a dedicated NAT Network for the cybersecurity lab.
+- Configured and verified IPv4 networking, gateway connectivity, and DNS resolution.
+- Created a clean VM snapshot for recovery and repeatable testing.
+- Prepared the environment for future penetration-testing and cybersecurity exercises.
+- Established a foundation for adding additional target machines to the same virtual network.
 
-
-Additional target machines can be added to the same virtual network in future projects.
+![](1-screenshot-kali-screen.png)
 
 ---
 
@@ -98,7 +102,7 @@ Additional target machines can be added to the same virtual network in future pr
 
 ## Step 1. Install 7-Zip
 
-7-Zip was installed to extract the Kali Linux virtual-machine package, which may be distributed as a `.7z` archive.
+Installed 7-Zip to extract the Kali Linux virtual machine package distributed in .7z format.
 
 **Tool:** 7-Zip
 
@@ -106,7 +110,7 @@ Additional target machines can be added to the same virtual network in future pr
 
 ## Step 2. Install VirtualBox
 
-VirtualBox was installed as the hypervisor.
+Installed Oracle VirtualBox as the hypervisor to create and manage virtual machines on the Windows 11 host system.
 
 ---
 
@@ -120,7 +124,7 @@ IPv4 Prefix:  10.0.0.0/24
 DHCP:         Enabled
 IPv6:         Disabled
 
-![](2-screenshot-network-settings-1.png)
+![](3-screenshot-network-settings-2.png)
 
 A **NAT Network** was selected because multiple virtual machines connected to the same NAT Network can communicate with one another while also having outbound network connectivity.
 
@@ -234,25 +238,6 @@ The network connection was then restarted/rebooted and connectivity was tested a
 
 > **Important:** Network interface and connection names may differ between systems. Students should first identify their actual connection name before running an `nmcli` command.
 
----
-
-## Problem 2. VirtualBox VT-x / Virtualization Error
-
-The VM initially failed to start because hardware virtualization was disabled in the system firmware/BIOS.
-
-The issue was resolved by:
-
-1. Restarting the computer.
-2. Entering BIOS/UEFI settings.
-3. Enabling Intel VT-x / hardware virtualization.
-4. Saving the configuration.
-5. Restarting the computer.
-6. Starting the Kali VM again.
-
-After enabling virtualization, the VM started successfully.
-
-
----
 
 # 💡 What I Learned
 
@@ -304,7 +289,7 @@ This laboratory is intended strictly for education purposes only.
 
 # 👤 Author
 
-**Waqas Karim**\
+**Zia Ur Rehman**\
 Cybersecurity Intern
 
 LinkedIn: [https://www.linkedin.com/in/ziaurrehmanr05/](https://www.linkedin.com/in/ziaurrehmanr05/)
